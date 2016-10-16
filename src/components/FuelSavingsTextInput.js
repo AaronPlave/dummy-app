@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 const FuelSavingsTextInput = (props) => {
   const handleChange = (e) => {
@@ -7,12 +7,12 @@ const FuelSavingsTextInput = (props) => {
 
   return (
     <input
-      className="small"
-      type="text"
-      placeholder={props.placeholder}
-      value={props.value}
-      onChange={handleChange}/>
-  );
+    className="small"
+    type="text"
+    placeholder={props.placeholder}
+    value={props.value}
+    onChange={handleChange}/>
+    );
 };
 
 FuelSavingsTextInput.propTypes = {

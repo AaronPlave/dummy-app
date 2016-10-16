@@ -1,6 +1,6 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import {expect} from 'chai';
+import { shallow } from 'enzyme';
+import { expect } from 'chai';
 import AboutPage from './AboutPage';
 
 describe('<AboutPage />', () => {
@@ -20,11 +20,11 @@ describe('<AboutPage />', () => {
     expect(actual).to.equal(expected);
   });
 
-  it('should link to an unknown route path', () => {
-    const wrapper = shallow(<AboutPage />);
-    const actual = wrapper.findWhere(n => n.prop('to') === '/badlink').length;
-    const expected = 1;
+  // it('should link to an unknown route path', () => {
+  //   const wrapper = shallow(<AboutPage />);
+  //   const actual = wrapper.findWhere(n => n.prop('to') === '/badlink').length;
+  //   const expected = 1;
 
-    expect(actual).to.be.equal(expected);
-  });
+  //   expect(actual).to.be.equal(expected);
+  // });
 });
