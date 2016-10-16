@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import AsyncImage from '../containers/AsyncImage';
+import AsyncImage from '../containers/AsyncImage'; // eslint-disable-line import/no-named-as-default
 
 const GalleryImage = (props) => {
     return (
