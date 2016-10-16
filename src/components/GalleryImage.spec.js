@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import GalleryImage from './GalleryImage';
-import AsyncImage from '../containers/AsyncImage'; // eslint-disable-line import/no-named-as-default
+import AsyncImage from './AsyncImage'; // eslint-disable-line import/no-named-as-default
 
 describe('<GalleryImage />', () => {
     it('should contain <AsyncImage />', () => {
