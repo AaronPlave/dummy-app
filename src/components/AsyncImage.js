@@ -1,7 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import * as actions from '../actions/fuelSavingsActions';
 import ReactDOM from 'react-dom';
 
 export class AsyncImage extends Component {
@@ -16,22 +13,18 @@ export class AsyncImage extends Component {
         imgLoader.onload = () => { this.onImageLoad(); };
         imgLoader.onerror = () => { this.onImageError(); };
         imgLoader.src = imgSrc;
-        // console.log("mounted", imgSrc);
 
     }
     componentWillUpdate(nextProps, nextState) {
         // Here we can catch props that are changing when component doesn't actually unmount
         let imgDest = ReactDOM.findDOMNode(this.refs.imgDest);
         imgDest.style.backgroundImage = "";
-        // console.log("will update");
     }
     componentWillUnmount() {
         this.destroyLoader();
-        // console.log("will unmount");
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        // console.log(nextProps, nextState);
         return false;
     }
 
@@ -41,14 +34,12 @@ export class AsyncImage extends Component {
         let imgDest = ReactDOM.findDOMNode(this.refs.imgDest);
         imgDest.style.backgroundImage = "url(" + imgSrc + ")";
         imgDest.style.opacity = "1";
-        // console.log("Image loaded");
         this.props.onImageLoad(this.props.src, this.props.id);
     }
 
     onImageError() {
         let imgLoader = ReactDOM.findDOMNode(this.refs.imgLoader);
         let imgDest = ReactDOM.findDOMNode(this.refs.imgDest);
-        // console.log("IMG DEST", imgDest)
         imgDest.classList.add(this.props.errorClassName);
         imgDest.style.opacity = "1";
     }
@@ -57,9 +48,9 @@ export class AsyncImage extends Component {
         let imgLoader = ReactDOM.findDOMNode(this.refs.imgLoader);
         let imgDest = ReactDOM.findDOMNode(this.refs.imgDest);
         imgLoader.onload = null;
+        imgLoader.onerror = null;
         imgLoader.src = "";
         imgDest.style.backgroundImage = "";
-        // console.log("loader destroyed");
     }
     render() {
         return (
