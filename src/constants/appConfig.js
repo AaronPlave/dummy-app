@@ -1,1 +1,1 @@
-export const GALLERY_PAGE_IMAGES_PER_PAGE = 2;
+export const GALLERY_PAGE_IMAGES_PER_PAGE = 5;

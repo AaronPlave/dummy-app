@@ -16,7 +16,7 @@ export class AsyncImage extends Component {
         imgLoader.onload = () => { this.onImageLoad(); };
         imgLoader.onerror = () => { this.onImageError(); };
         imgLoader.src = imgSrc;
-        // console.log("mounted");
+        // console.log("mounted", imgSrc);
 
     }
     componentWillUpdate(nextProps, nextState) {
@@ -30,22 +30,27 @@ export class AsyncImage extends Component {
         // console.log("will unmount");
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        // console.log(nextProps, nextState);
+        return false;
+    }
+
     onImageLoad() {
         let imgLoader = ReactDOM.findDOMNode(this.refs.imgLoader);
         let imgSrc = imgLoader.getAttribute('src');
         let imgDest = ReactDOM.findDOMNode(this.refs.imgDest);
         imgDest.style.backgroundImage = "url(" + imgSrc + ")";
         imgDest.style.opacity = "1";
-        // console.log("image loaded");
+        // console.log("Image loaded");
+        this.props.onImageLoad(this.props.src, this.props.id);
     }
 
     onImageError() {
         let imgLoader = ReactDOM.findDOMNode(this.refs.imgLoader);
-        // let imgSrc = imgLoader.getAttribute('src');
         let imgDest = ReactDOM.findDOMNode(this.refs.imgDest);
+        // console.log("IMG DEST", imgDest)
         imgDest.classList.add(this.props.errorClassName);
         imgDest.style.opacity = "1";
-        console.log("?", imgDest.c, this.props.errorClassName)
     }
 
     destroyLoader() {
@@ -57,10 +62,9 @@ export class AsyncImage extends Component {
         // console.log("loader destroyed");
     }
     render() {
-      // console.log("image render");
         return (
             <div>
-                <img style={{"display":"none"}} src={this.props.src} ref="imgLoader" />
+                <img id={this.props.id} style={{"display":"none"}} src={this.props.src} ref="imgLoader" />
                 <span style={{"transition":"opacity 0.3s"}} className={this.props.className} ref="imgDest" />
             </div>
         );
@@ -69,8 +73,10 @@ export class AsyncImage extends Component {
 
 AsyncImage.propTypes = {
     src: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    errorClassName: PropTypes.string
+    id: PropTypes.string.isRequired,
+    className: PropTypes.string.isRequired,
+    errorClassName: PropTypes.string.isRequired,
+    onImageLoad: PropTypes.func.isRequired
 };
 
 export default AsyncImage;

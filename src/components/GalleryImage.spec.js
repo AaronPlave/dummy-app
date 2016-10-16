@@ -6,13 +6,13 @@ import AsyncImage from './AsyncImage'; // eslint-disable-line import/no-named-as
 
 describe('<GalleryImage />', () => {
     it('should contain <AsyncImage />', () => {
-        const wrapper = shallow(<GalleryImage src={""}/>);
+        const wrapper = shallow(<GalleryImage src="?" palette={[]} onImageLoad={()=>{}} id="?"/>);
 
         expect(wrapper.find(AsyncImage)).to.be.length(1);
     });
 
-    it('should have a div with \'thumbnail-image-container\' class', () => {
-        const wrapper = shallow(<GalleryImage src={""}/>);
+    it('should have contain with \'thumbnail-image-container\' class', () => {
+        const wrapper = shallow(<GalleryImage src="?" palette={[]} onImageLoad={()=>{}} id="?"/>);
         const actual = wrapper.find('div').prop('className');
         const expected = 'thumbnail-image-container';
 
@@ -20,7 +20,7 @@ describe('<GalleryImage />', () => {
     });
 
     it('should have an <AsyncImage /> with \'thumbnail-image\' class', () => {
-        const wrapper = shallow(<GalleryImage src={""}/>);
+        const wrapper = shallow(<GalleryImage src="?" palette={[]} onImageLoad={()=>{}} id="?"/>);
         const actual = wrapper.find(AsyncImage).prop('className');
         const expected = 'thumbnail-image';
 

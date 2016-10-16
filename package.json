@@ -29,6 +29,7 @@
   "author": "Aaron Plave",
   "license": "MIT",
   "dependencies": {
+    "color-thief": "github:aaronplave/color-thief",
     "object-assign": "4.1.0",
     "react": "15.3.1",
     "react-dom": "15.3.1",
