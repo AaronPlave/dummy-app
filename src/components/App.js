@@ -9,20 +9,19 @@ export class App extends Component {
         return (
             <div>
                 <br/>
-                <IndexLink to="/">Colors of Mars</IndexLink>
-                <Link className="align-right" to="/about">About</Link>
+                <IndexLink className="router-link" to="/">Colors of Mars</IndexLink>
+                <Link className="router-link align-right" to="/about">About</Link>
                 <br/>
                 <br/>
                 {this.props.children}
             </div>
         );
     }
-};
+}
 
 App.propTypes = {
     actions: PropTypes.object.isRequired,
     children: PropTypes.element
-    // loadInitialApplicationState: PropTypes.func.isRequired
 };
 
 export default App;

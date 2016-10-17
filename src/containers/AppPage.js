@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import App from '../components/App';
+import { App } from '../components/App';
 import * as actions from '../actions/appActions';
-// import * as appConfig from '../constants/appConfig';
 
 export const AppPage = (props) => {
     return (
@@ -20,11 +19,11 @@ AppPage.propTypes = {
     children: PropTypes.element
 };
 
-function mapStateToProps(state) {
-    return {
-        // galleryImages: state.galleryImages
-    };
-}
+// function mapStateToProps(state) {
+//     return {
+//         // galleryImages: state.galleryImages
+//     };
+// }
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -33,6 +32,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(AppPage);

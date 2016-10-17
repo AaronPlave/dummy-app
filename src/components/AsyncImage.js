@@ -13,19 +13,20 @@ export class AsyncImage extends Component {
         imgLoader.onload = () => { this.onImageLoad(); };
         imgLoader.onerror = () => { this.onImageError(); };
         imgLoader.src = imgSrc;
-
     }
-    componentWillUpdate(nextProps, nextState) {
+
+    shouldComponentUpdate() {
+        return false;
+    }
+
+    componentWillUpdate() {
         // Here we can catch props that are changing when component doesn't actually unmount
         let imgDest = ReactDOM.findDOMNode(this.refs.imgDest);
         imgDest.style.backgroundImage = "";
     }
+    
     componentWillUnmount() {
         this.destroyLoader();
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        return false;
     }
 
     onImageLoad() {
@@ -38,7 +39,6 @@ export class AsyncImage extends Component {
     }
 
     onImageError() {
-        let imgLoader = ReactDOM.findDOMNode(this.refs.imgLoader);
         let imgDest = ReactDOM.findDOMNode(this.refs.imgDest);
         imgDest.classList.add(this.props.errorClassName);
         imgDest.style.opacity = "1";

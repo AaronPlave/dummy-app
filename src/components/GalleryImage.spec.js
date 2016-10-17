@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import GalleryImage from './GalleryImage';
+import { Palette } from './Palette';
 import AsyncImage from './AsyncImage'; // eslint-disable-line import/no-named-as-default
 
 describe('<GalleryImage />', () => {
@@ -25,5 +26,11 @@ describe('<GalleryImage />', () => {
         const expected = 'thumbnail-image';
 
         expect(actual).to.equal(expected);
+    });
+
+    it('should have a <Palette />', () => {
+        const wrapper = shallow(<GalleryImage src="?" palette={[]} onImageLoad={()=>{}} id="?"/>);
+        
+        expect(wrapper.find(Palette)).to.be.length(1);
     });
 });

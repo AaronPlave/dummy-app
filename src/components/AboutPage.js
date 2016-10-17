@@ -6,8 +6,10 @@ const AboutPage = () => {
     <div>
       <h2 className="alt-header">About</h2>
       <p>
-        Color palettes based off HiRISE imagery
+        Imagery from <a target="_blank" href="http://hirise.lpl.arizona.edu">HiRISE</a> Flickr Wallpaper album.
+        Color palettes generated using the <a target="_blank" href="https://github.com/lokesh/color-thief">Color Thief</a> library.
       </p>
+      <p><a target="_blank" href="https://github.com/AaronPlave/dummy-app">Project Source</a></p>
     </div>
     );
 };

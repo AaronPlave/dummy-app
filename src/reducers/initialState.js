@@ -1,6 +1,7 @@
 export default {
-	isLoaded: false, 
+    isLoaded: false,
     galleryImages: {
+        imagePage: 0,
         images: []
     }
 };

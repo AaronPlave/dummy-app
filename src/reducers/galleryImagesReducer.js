@@ -11,12 +11,14 @@ import initialState from './initialState';
 // Note that I'm using Object.assign to create a copy of current state
 // and update values on the copy.
 
-const loadInitialApplicationState = (state) => {
+const randomizedImageUrls = mathHelper.shuffle(images.imageUrls.urls);
+
+const setGalleryImagesPage = (state) => {
     let newState = objectAssign({}, state);
-    let randomizedImageUrls = mathHelper.shuffle(images.imageUrls.urls);
-    newState.images = randomizedImageUrls.slice(0, appConfig.GALLERY_PAGE_IMAGES_PER_PAGE).map(x => {
+    newState.imagePage += 1;
+    newState.images = newState.images.concat(randomizedImageUrls.slice(appConfig.GALLERY_PAGE_IMAGES_PER_PAGE * (newState.imagePage - 1), appConfig.GALLERY_PAGE_IMAGES_PER_PAGE * newState.imagePage).map(x => {
         return { url: x, id: x, palette: [] };
-    });
+    }));
     return newState;
 };
 
@@ -36,7 +38,7 @@ const calculateColorPalette = (state, action) => {
 export default function galleryImages(state = initialState.galleryImages, action) {
     switch (action.type) {
         case LOAD_INITIAL_APPLICATION_STATE:
-            return loadInitialApplicationState(state, action);
+            return setGalleryImagesPage(state, action);
 
         case CALCULATE_COLOR_PALETTE:
             return calculateColorPalette(state, action);
