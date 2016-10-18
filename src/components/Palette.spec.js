@@ -1,21 +1,17 @@
-// import React from 'react';
-// import { shallow } from 'enzyme';
-// import { expect } from 'chai';
-// import { Palette } from './Palette';
-// // import Color from './Color';
+import React from 'react';
+import { shallow } from 'enzyme';
+import { expect } from 'chai';
+import { Palette } from './Palette';
+import * as appConfig from '../constants/appConfig';
 
-// describe('<Palette />', () => {
-//     // it('should contain <GalleryImage />', () => {
-//     //     let images = []
-//     //     for (let i = 0; i < appConfig.GALLERY_PAGE_IMAGES_PER_PAGE; i++) {
-//     //         images.push({
-//     //             src: "url-" + Math.random().toString(),
-//     //             id: "?",
-//     //             onImageLoad: () => {},
-//     //             palette: []
-//     //         })
-//     //     }
-//     //     const wrapper = shallow(<Gallery images={images}/>);
-//     //     expect(wrapper.find(GalleryImage)).to.be.length(appConfig.GALLERY_PAGE_IMAGES_PER_PAGE);
-//     // });
-// });
+
+describe('<Palette />', () => {
+    it('should contain the correct number of colors when no colors given and each color should have no style', () => {
+        const wrapper = shallow(<Palette colors={[]}/>);
+        const colorSpans = wrapper.findWhere(x => x.prop('className') === 'color');
+        expect(colorSpans).to.have.length(appConfig.NUM_PALETTE_COLORS);
+        colorSpans.map(c => {
+            expect(c.prop('style')).to.be.empty;
+        })
+    });
+});

@@ -1,4 +1,4 @@
-class MathHelper {
+export default class MathHelper {
     // static roundNumber(numberToRound, numberOfDecimalPlaces) {
     //     if (numberToRound === 0) {
     //         return 0;
@@ -52,5 +52,3 @@ class MathHelper {
         return array;
     }
 }
-
-export default MathHelper;

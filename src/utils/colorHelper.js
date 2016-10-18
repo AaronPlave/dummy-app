@@ -2,6 +2,29 @@ import ColorThief from 'color-thief';
 import * as appConfig from '../constants/appConfig';
 
 export default class ColorHelper {
+    static rgbFromArray(rgbArray) {
+        if (!rgbArray) {
+            return false;
+        }
+        if (rgbArray.constructor !== Array) {
+            return false;
+        }
+        if (rgbArray.length !== 3) {
+            return false;
+        }
+        // Verify each value is an integer between 0-255
+        let validValues = rgbArray.filter(x => {
+            return typeof x === 'number' &&
+                (x % 1) === 0 &&
+                x >= 0 &&
+                x <= 255;
+        });
+        if (validValues.length !== 3) {
+            return false;
+        }
+        return "rgb(" + rgbArray.join(",") + ")";
+    }
+
     static calculatePalette(src) {
         return new Promise((resolve, reject) => {
             let xhr = new XMLHttpRequest();

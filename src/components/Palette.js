@@ -1,12 +1,17 @@
 import React, { PropTypes } from 'react';
 import * as appConfig from '../constants/appConfig';
-// import Color from './Color';
+import ColorHelper from '../utils/colorHelper';
 
 export const Palette = (props) => {
     let determineStyles = (colors => {
         if (colors.length === appConfig.NUM_PALETTE_COLORS) {
             return colors.map(color => {
-                return { background: "rgb(" + color.join(",") + ")" };
+                let rgbaString = ColorHelper.rgbFromArray(color);
+                if (rgbaString) {
+                    return { background: rgbaString};
+                } else {
+                    return {};
+                }
             });
         } else {
             let arr = [];
