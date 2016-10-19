@@ -32,13 +32,21 @@ ls
 # Clean out existing contents
 rm -rf out/**/* || exit 0
 
-ls
+echo "Out should be clean"
+ls out
 
 # Run our compile script
 doCompile
 
+echo "Dist should have stuff"
+ls
+ls dist
+
 # Rename our dist folder to out since dist is in .gitignore
 mv dist/* out/
+
+echo "Dist should be in out"
+ls out
 
 # Now let's go have some fun with the cloned repo
 cd out
@@ -52,13 +60,15 @@ if git diff --quiet ; then
     exit 0
 fi
 
-ls
-git status
-
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
 git add .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
+
+echo "Changes should be committed"
+git status
+ls
+
 
 # Get the deploy key by using Travis's stored variables to decrypt id_travis.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
