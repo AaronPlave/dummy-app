@@ -60,6 +60,9 @@ if git diff --quiet ; then
     exit 0
 fi
 
+# Add CNAME for deploy
+echo "dummy-app.aaronplave.com" > CNAME
+
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
 git add .
