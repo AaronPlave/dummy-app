@@ -27,17 +27,21 @@ cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
+ls
+
 # Clean out existing contents
 rm -rf out/**/* || exit 0
+
+ls
 
 # Run our compile script
 doCompile
 
 # Rename our dist folder to out since dist is in .gitignore
-mv dist out
+mv dist out/prod
 
 # Now let's go have some fun with the cloned repo
-cd out
+cd out/prod
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
