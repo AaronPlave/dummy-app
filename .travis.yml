@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "6"
+  - "5"
+  - "4"
+after_success:
+  # Send coverage data to coveralls.
+  - npm run test:cover:travis
+  - chmod a+x deploy.sh
+  - ./deploy.sh
+notifications:
+  email: false
+env:
+  global:
+    - ENCRYPTION_LABEL: "a421239cefa3"
+    - COMMIT_AUTHOR_EMAIL: "aplave@wesleyan.edu"

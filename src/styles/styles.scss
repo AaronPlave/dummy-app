@@ -1,0 +1,116 @@
+/* Variables */
+
+$color-text-primary: black;
+$color-text-secondary: rgba(0, 0, 0, 0.5);
+$palette-color-transition-delay: 0.05s;
+
+/* Utility styles */
+
+.align-left {
+    float: left;
+}
+
+.align-right {
+    float: right;
+}
+
+
+/* Styles */
+
+body {
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4em;
+    letter-spacing: -0.05rem;
+    color: $color-text-primary;
+    min-width: 230px;
+    max-width: 550px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+p {
+    letter-spacing: -0.01rem;
+}
+
+.router-link {
+    color: $color-text-primary;
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:visited {
+    color: $color-text-primary;
+}
+
+.async-image-container {
+    background: #f9f9f9;
+}
+
+.thumbnail-image-container {
+    margin-bottom: 10px;
+}
+
+.thumbnail-image {
+    display: block;
+    opacity: 0;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+    background-position: 50% 50%;
+    border-radius: 2px;
+    border-radius: 2px;
+}
+
+.thumbnail-image-error {
+    background: #dedede;
+}
+
+.thumbnail-image-error:after {
+    content: "Content Missing";
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    display: block;
+    top: 45%;
+}
+
+.palette-container {
+    height: 26px;
+    padding: 0px 0px;
+    display: block;
+}
+
+.color {
+    background: #f1f1f1;
+    transition: 1s;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-top: 3px;
+    margin-right: 2px;
+}
+
+.color:nth-child(2) {
+    transition-delay: $palette-color-transition-delay;
+}
+
+.color:nth-child(3) {
+    transition-delay: $palette-color-transition-delay * 2;
+}
+
+.color:nth-child(4) {
+    transition-delay: $palette-color-transition-delay * 3;
+}
+
+.color:nth-child(5) {
+    transition-delay: $palette-color-transition-delay * 4;
+}
