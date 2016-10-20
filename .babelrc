@@ -10,6 +10,15 @@
         "react-hmre"
       ]
     },
+    "test": {
+      "plugins": [
+        ["istanbul", {
+          "exclude": [
+            "**/*.spec.js"
+          ]
+        }]
+      ]
+    },
     "production": {
       "plugins": [
         "transform-react-constant-elements",
