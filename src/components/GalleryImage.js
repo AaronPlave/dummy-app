@@ -3,16 +3,19 @@ import AsyncImage from './AsyncImage'; // eslint-disable-line import/no-named-as
 import { Palette } from './Palette';
 
 const GalleryImage = (props) => {
-    const onImageLoad = (imgEl) => {
-        props.onImageLoad(imgEl, props.id);
-    };
+    // const onImageLoad = (imgEl) => {
+    //     props.onImageLoad(imgEl, props.id);
+    // };
+
+    // console.log(onImageLoad.toString(),"oni")
 
     return (
         <div className="thumbnail-image-container">
           <AsyncImage 
             className="thumbnail-image" 
             errorClassName="thumbnail-image-error" 
-            onImageLoad={onImageLoad}
+            // onImageLoad={onImageLoad}
+            onImageLoad={props.onImageLoad}
             src={props.src}
             id={props.id} />
           <Palette colors={props.palette} />

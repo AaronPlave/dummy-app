@@ -8,7 +8,9 @@ export const GalleryPage = (props) => {
     return (
         <Gallery 
           images={props.galleryImages.images}
+          moreImages={props.galleryImages.morePages}
           onImageLoad={props.actions.calculateColorPalette}
+          loadMoreImages={props.actions.loadMoreImages}
         />
     );
 };

@@ -8,3 +8,7 @@ export function calculateColorPalette(url, id) {
         });
     });
 }
+
+export function loadMoreImages() {
+    return { type: types.LOAD_MORE_IMAGES };
+}

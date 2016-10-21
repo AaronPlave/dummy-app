@@ -39,12 +39,13 @@ describe('<GalleryImage />', () => {
 
     it('should call passed onImageLoad function with correct parameters', () => {
         const cb = sinon.spy();
-        const onImageLoad = (x, cb) => { cb(x); };
+        const onImageLoad = (imgEl, id) => { return cb(imgEl, id); };
         const wrapper = shallow(<GalleryImage src="!" palette={[]} onImageLoad={onImageLoad} id="?"/>);
+        expect(wrapper.find(Palette)).to.be.length(1);
 
         cb.should.not.have.been.called; // Make sure it has never been called
-        wrapper.instance().props["onImageLoad"]("?",cb); // Get the prop from instance, call it with param
-        expect(wrapper.find(Palette)).to.be.length(1);
+        wrapper.instance().props["onImageLoad"]("el","id"); // Get the prop from instance, call it with param
         expect(cb.calledOnce).to.be.true; // Make sure it has been called once
+        expect(cb).to.have.been.calledWith("el","id"); // Make sure it has been called once
     });
 });

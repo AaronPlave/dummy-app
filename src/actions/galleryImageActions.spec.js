@@ -20,5 +20,19 @@ describe('Actions', () => {
         expect(typeof(galleryImageActions.calculateColorPalette(expected.url, expected.id))).to.equal('function');
         // then we simulate calling it with dispatch as the store would do
         expect(galleryImageActions.calculateColorPalette(expected.url, expected.id)(dispatch)).to.be.a('promise');
+        // expect(dispatch).to.have.been.calledWith(expected);
+        // console.log(galleryImageActions.calculateColorPalette(expected.url, expected.id)(dispatch),"DOS{")
+        // galleryImageActions.calculateColorPalette(expected.url, expected.id)(dispatch).then(result => {
+        //     console.log("DONE", r)
+        //     expect(dispatch).to.have.been.calledWith(expected);
+        //     // done();
+        // })
+    });
+
+    it('should create an action to load more images', () => {
+        const actual = galleryImageActions.loadMoreImages();
+        const expected = { type: actionTypes.LOAD_MORE_IMAGES };
+
+        expect(actual).to.deep.equal(expected); // Notice use of deep because it's a nested object
     });
 });

@@ -1,4 +1,4 @@
-import { CALCULATE_COLOR_PALETTE, LOAD_INITIAL_APPLICATION_STATE } from '../constants/actionTypes';
+import { CALCULATE_COLOR_PALETTE, LOAD_INITIAL_APPLICATION_STATE, LOAD_MORE_IMAGES } from '../constants/actionTypes';
 import mathHelper from '../utils/mathHelper';
 import * as images from '../data/urls';
 import * as appConfig from '../constants/appConfig';
@@ -19,6 +19,9 @@ const setGalleryImagesPage = (state) => {
     newState.images = newState.images.concat(randomizedImageUrls.slice(appConfig.GALLERY_PAGE_IMAGES_PER_PAGE * (newState.imagePage - 1), appConfig.GALLERY_PAGE_IMAGES_PER_PAGE * newState.imagePage).map(x => {
         return { url: x, id: x, palette: [] };
     }));
+
+    // Determine if there are more pages available
+    newState.morePages = randomizedImageUrls.length - newState.images.length > 0;
     return newState;
 };
 
@@ -38,6 +41,11 @@ const calculateColorPalette = (state, action) => {
 export default function galleryImages(state = initialState.galleryImages, action) {
     switch (action.type) {
         case LOAD_INITIAL_APPLICATION_STATE:
+            // Could have other flag info here or could refactor to
+            // get rid of this action and just have everything use page action
+            return setGalleryImagesPage(state, action);
+
+        case LOAD_MORE_IMAGES:
             return setGalleryImagesPage(state, action);
 
         case CALCULATE_COLOR_PALETTE:
