@@ -1,5 +1,10 @@
 import { expect } from 'chai';
+// import chai, {expect} from 'chai';
+// import sinon from 'sinon';
+// import sinonChai from 'sinon-chai';
 import ColorHelper from './colorHelper';
+
+// chai.use(sinonChai);
 
 describe('Color Helper', () => {
     describe('rgbFromArray', () => {
@@ -32,5 +37,32 @@ describe('Color Helper', () => {
             expect(ColorHelper.rgbFromArray([0, 0, 0])).to.equal("rgb(0,0,0)");
             expect(ColorHelper.rgbFromArray([0, 255, 0])).to.equal("rgb(0,255,0)");
         });
+    });
+
+    describe('calculatePalette', () => {
+        it('Returns a promise', () => {
+            expect(ColorHelper.calculatePalette("test")).to.be.a("promise");
+        });
+
+        // let xhr, requests;
+        // before(function() {
+        //     xhr = sinon.useFakeXMLHttpRequest();
+        //     requests = [];
+        //     xhr.onCreate = function(req) { requests.push(req); };
+        // });
+
+        // after(function() {
+        //     // Like before we must clean up when tampering with globals.
+        //     xhr.restore();
+        // });
+        // it('Resolves to a valid color palette with number of colors matching appConfig.NUM_PALETTE_COLORS', () => {
+        //     return ColorHelper.calculatePalette("test").then(result => {
+        //         console.log(result, "results")
+        //         expect(result).to.be.an("array");
+        //     }, err => {
+        //         console.log(err, "err")
+        //         return false;
+        //     })
+        // });
     });
 });
