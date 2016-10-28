@@ -64,7 +64,7 @@ echo "dummy-app.aaronplave.com" > CNAME
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git add .
+git add --all .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 echo "Changes should be committed"
