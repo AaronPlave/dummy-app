@@ -29,7 +29,7 @@ cd ..
 ls
 
 # Clean out existing contents
-rm -rf out/**/* || exit 0
+rm -rf out/*.js out/*.map out/*.css || exit 0
 
 echo "Out should be clean"
 ls out
