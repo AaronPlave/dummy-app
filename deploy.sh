@@ -26,26 +26,14 @@ cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
-ls
-
 # Clean out existing contents
 rm -rf out/*.js out/*.map out/*.css || exit 0
-
-echo "Out should be clean"
-ls out
 
 # Run our compile script
 doCompile
 
-echo "Dist should have stuff"
-ls
-ls dist
-
 # Rename our dist folder to out since dist is in .gitignore
 mv dist/* out/
-
-echo "Dist should be in out"
-ls out
 
 # Now let's go have some fun with the cloned repo
 cd out
@@ -67,11 +55,6 @@ echo "dummy-app.aaronplave.com" > CNAME
 git add --all .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
-echo "Changes should be committed"
-git status
-ls
-
-
 # Get the deploy key by using Travis's stored variables to decrypt id_travis.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
 ENCRYPTED_IV_VAR="encrypted_${ENCRYPTION_LABEL}_iv"
@@ -83,4 +66,4 @@ eval `ssh-agent -s`
 ssh-add id_travis
 
 # Now that we're all set up, we can push.
-git push --force --quiet $SSH_REPO $TARGET_BRANCH
+git push --quiet $SSH_REPO $TARGET_BRANCH
