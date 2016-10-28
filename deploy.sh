@@ -83,4 +83,4 @@ eval `ssh-agent -s`
 ssh-add id_travis
 
 # Now that we're all set up, we can push.
-git push --quiet $SSH_REPO $TARGET_BRANCH
+git push --force --quiet $SSH_REPO $TARGET_BRANCH
