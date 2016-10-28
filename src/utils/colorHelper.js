@@ -1,4 +1,4 @@
-import ColorThief from 'color-thief';
+import { ColorThief } from 'color-thief';
 import * as appConfig from '../constants/appConfig';
 
 export default class ColorHelper {
