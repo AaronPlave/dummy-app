@@ -29,8 +29,7 @@ cd ..
 ls
 
 # Clean out existing contents
-rm -rf out|| exit 0
-mkdir out
+rm -rf out/**/* || exit 0
 
 echo "Out should be clean"
 ls out
@@ -84,4 +83,4 @@ eval `ssh-agent -s`
 ssh-add id_travis
 
 # Now that we're all set up, we can push.
-git push $SSH_REPO $TARGET_BRANCH
+git push --quiet $SSH_REPO $TARGET_BRANCH
