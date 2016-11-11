@@ -7,8 +7,15 @@ README
 Dummy app to learn more about best practices for the React/..../Webpack/...Test/CI/CD stack
 
 Things to evaluate
-* TravisCI
-* Coveralls
-* Code coverage tools
-* React testing tools (Jest vs Mocha/Chai/Enzyme)
-* Documentation generators
+* [x] TravisCI
+    * [x] Deploy to GH pages
+* [x] CircleCI
+    * [ ] Deploy to GH pages
+* [ ] Flow
+* [ ] Code Climate
+* [x] Coveralls
+* [x] Code coverage tools
+* [ ] React testing tools (Jest vs Mocha/Chai/Enzyme)
+    * [ ] Jest
+    * [x] Karma/Mocha/Chai/Enzyme/Sinon
+* [ ] Documentation generators
