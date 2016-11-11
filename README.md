@@ -2,6 +2,7 @@
 [![CircleCI](https://circleci.com/gh/AaronPlave/dummy-app.svg?style=shield)](https://circleci.com/gh/AaronPlave/dummy-app)
 [![Dependency Status](https://david-dm.org/aaronplave/dummy-app.svg?style=flat-square)](https://david-dm.org/aaronplave/dummy-app)
 [![Coverage Status](https://coveralls.io/repos/github/AaronPlave/dummy-app/badge.svg?branch=master)](https://coveralls.io/github/AaronPlave/dummy-app?branch=master)
+[![Code Climate](https://codeclimate.com/github/AaronPlave/dummy-app/badges/gpa.svg)](https://codeclimate.com/github/AaronPlave/dummy-app)
 
 README
 Dummy app to learn more about best practices for the React/..../Webpack/...Test/CI/CD stack
